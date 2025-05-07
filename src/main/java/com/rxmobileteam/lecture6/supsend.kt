@@ -113,7 +113,7 @@ internal class RealUserRepository(
     // Call concurrently userApi's methods on ioDispatcher
     return CoroutineScope(ioDispatcher).async {
       val user: User? = userApi.findUserById(id)
-      val details : UserDetails? = userApi.findDetailsByUser(id)
+      val details: UserDetails? = userApi.findDetailsByUser(id)
       if (user != null && details != null) {
         UserAndDetails(user, details)
       } else {
